@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="The Farmer Map - Minecraft Bedrock map by adhm120. Bedrock 26.52+">
+<title>The Farmer Map</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+:root {
+  --bg: #111111;
+  --text: #f2f2f2;
+  --muted: #b5b5b5;
+  --curse: #f16436;
+  --mcpedl: #2e9e4f;
+  --planet: #2a9e69;
+  --mega: #1d7bd6;
+  --yt: #ff0000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  overflow-x: hidden;
+  position: relative;
+}
+
+.bg {
+  position: fixed;
+  inset: -12px;
+  z-index: -1;
+  background: var(--bg) url("back.jpg") center / cover no-repeat;
+  opacity: 0.55;
+  filter: blur(5px);
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 36px 28px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  animation: rise 0.5s ease-out both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.version {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: clamp(1.15rem, 4.5vw, 1.35rem);
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.version img {
+  width: 1.3em;
+  height: 1.3em;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.author {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 54px;
+  border-radius: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.25;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.btn img {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.btn svg {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%);
+}
+
+.btn .dl-text {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 24px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  transform: translateY(-50%) scaleY(1.5);
+}
+
+.curse {
+  background: var(--curse);
+}
+
+.mcpedl {
+  background: var(--mcpedl);
+}
+
+.planet {
+  background: var(--planet);
+}
+
+.mega {
+  background: var(--mega);
+}
+
+.yt {
+  background: var(--yt);
+  align-self: center;
+  width: 80%;
+  margin-top: 12px;
+}
+
+@media (max-width: 360px) {
+  .card {
+    padding: 28px 16px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 12px 44px;
+  }
+
+  .btn img,
+  .btn .dl-text {
+    right: 12px;
+  }
+
+  .btn svg {
+    left: 12px;
+  }
+
+  .yt {
+    width: 88%;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    max-width: 460px;
+    padding: 44px 36px;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  body {
+    align-items: flex-start;
+  }
+
+  .card {
+    padding: 24px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+
+  .btn {
+    transition: none;
+  }
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<main class="card">
+  <h1>The Farmer Map</h1>
+  <p class="version">
+    <img src="bedrock.png" alt="" width="28" height="28">
+    Bedrock 26.52+
+  </p>
+  <p class="author">by adhm120</p>
+  <nav class="buttons">
+    <a class="btn curse" href="https://www.curseforge.com/minecraft-bedrock/maps/the-farmer/files/9177971" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download from CurseForge
+      <img src="curseforge.png" alt="" width="24" height="24">
+    </a>
+    <a class="btn mcpedl" href="https://mcpedl.com/the-farmer/" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download from MCPEDL
+      <span class="dl-text" aria-hidden="true">DL</span>
+    </a>
+    <a class="btn planet" href="https://www.planetminecraft.com/project/the-farmer-7077273/" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download from Minecraft Planet
+      <img src="planetminecraft.png" alt="" width="24" height="24">
+    </a>
+    <a class="btn mega" href="https://www.mediafire.com/file/8hj8xh79w4rvb98/thefarmer1.3v.mcworld/file" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download from MediaFire
+      <img src="mediafire.png" alt="" width="24" height="24">
+    </a>
+    <a class="btn yt" href="https://youtube.com/@adhm120" target="_blank" rel="noopener noreferrer">
+      YouTube Channel
+      <img src="youtube.png" alt="" width="24" height="24">
+    </a>
+  </nav>
+</main>
+</body>
+</html>
